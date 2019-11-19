@@ -40,3 +40,4 @@ enum class EUndoType : uint8
 	Event,
 	Break
 };
+
