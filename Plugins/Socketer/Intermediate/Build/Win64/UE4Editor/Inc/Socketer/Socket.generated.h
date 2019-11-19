@@ -1,11 +1,11 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-#include "ObjectMacros.h"
-#include "ScriptMacros.h"
+#include "UObject/ObjectMacros.h"
+#include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #ifdef SOCKETER_Socket_generated_h
@@ -18,21 +18,19 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define MediocreMapper_Plugins_Socketer_Source_Socketer_Public_Socket_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUSocket(); \
-	friend SOCKETER_API class UClass* Z_Construct_UClass_USocket(); \
+	friend struct Z_Construct_UClass_USocket_Statics; \
 public: \
-	DECLARE_CLASS(USocket, UObject, COMPILED_IN_FLAGS(0), 0, TEXT("/Script/Socketer"), NO_API) \
-	DECLARE_SERIALIZER(USocket) \
-	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
+	DECLARE_CLASS(USocket, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Socketer"), NO_API) \
+	DECLARE_SERIALIZER(USocket)
 
 
 #define MediocreMapper_Plugins_Socketer_Source_Socketer_Public_Socket_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesUSocket(); \
-	friend SOCKETER_API class UClass* Z_Construct_UClass_USocket(); \
+	friend struct Z_Construct_UClass_USocket_Statics; \
 public: \
-	DECLARE_CLASS(USocket, UObject, COMPILED_IN_FLAGS(0), 0, TEXT("/Script/Socketer"), NO_API) \
-	DECLARE_SERIALIZER(USocket) \
-	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
+	DECLARE_CLASS(USocket, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Socketer"), NO_API) \
+	DECLARE_SERIALIZER(USocket)
 
 
 #define MediocreMapper_Plugins_Socketer_Source_Socketer_Public_Socket_h_17_STANDARD_CONSTRUCTORS \
@@ -84,6 +82,8 @@ public: \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
+
+template<> SOCKETER_API UClass* StaticClass<class USocket>();
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID MediocreMapper_Plugins_Socketer_Source_Socketer_Public_Socket_h

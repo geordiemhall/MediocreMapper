@@ -1,9 +1,28 @@
-# Fork of a fork of a 3D beatsaber song editor
-![alt text](https://i.imgur.com/zimA0I6.png)
-This is a "fork" of [EditSaberEnhanced by permissionBRICK](https://github.com/permissionBRICK/EditSaberEnhanced) which is a "fork" of  [EditSaber by Ikeiwa](https://github.com/Ikeiwa/EditSaber). Previously assisting with EditSaberEnhanced, I made this mediocre thing as a set of feature additions on EditSaberEnanced.
 
-## No longer maintained
- 
+# From Iliags
+
+I don't own Beat Saber. I did, however, play a ton of Guitar Hero and Frets on Fire plus I made a few derpy song maps with EoF. I will try to clean out the unnecessary junk from this project because the state of this editor is pretty sad.
+
+
+
+
+
+### Todo
+* Update engine and plugins to UE 4.22 (or fix compilation errors)
+* Remove fairly useless plugins (Discord RPC, VaRest, etc)
+* Remove Meme garbage
+* Convert Blueprints to C++ (BP_Controller is a mess)
+
+
+
+
+
+
+# This is the changelog from squeakies fork
+
+## Fork of a fork of a 3D beatsaber song editor
+This is a "fork" of [EditSaberEnhanced by permissionBRICK](https://github.com/permissionBRICK/EditSaberEnhanced) which is a "fork" of  [EditSaber by Ikeiwa](https://github.com/Ikeiwa/EditSaber). 
+
 ## Update Mk4
 ### New Stuff
 * **Lightmap** v2 integration

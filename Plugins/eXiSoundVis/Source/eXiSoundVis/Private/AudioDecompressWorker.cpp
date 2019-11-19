@@ -12,10 +12,12 @@ FAudioDecompressWorker* FAudioDecompressWorker::Runnable = NULL;
 int32 FAudioDecompressWorker::ThreadCounter = 0;
 
 FAudioDecompressWorker::FAudioDecompressWorker(class USoundWave* InSoundWaveRef)
-	: SoundWaveRef(InSoundWaveRef)
-	, AudioInfo(NULL)
-	, Thread(NULL)
+	: Thread(NULL)
+	, SoundWaveRef(InSoundWaveRef)
 {
+	//, AudioInfo(NULL)
+	// Had to move this in here due to incorrect order of initialization
+	AudioInfo = nullptr;
 	if (GEngine && GEngine->GetMainAudioDevice())
 	{
 		AudioInfo = GEngine->GetMainAudioDevice()->CreateCompressedAudioInfo(SoundWaveRef);
@@ -80,7 +82,7 @@ uint32 FAudioDecompressWorker::Run()
 			FScopeCycleCounterUObject WaveObject(SoundWaveRef);
 
 			// Extract the data
-			SoundWaveRef->SampleRate = QualityInfo.SampleRate;
+			SoundWaveRef->SetSampleRate(QualityInfo.SampleRate);
 			SoundWaveRef->NumChannels = QualityInfo.NumChannels;
 
 			if (QualityInfo.Duration > 0.0f)
@@ -88,7 +90,7 @@ uint32 FAudioDecompressWorker::Run()
 				SoundWaveRef->Duration = QualityInfo.Duration;
 			}
 
-			const uint32 PCMBufferSize = SoundWaveRef->Duration * SoundWaveRef->SampleRate * SoundWaveRef->NumChannels;
+			const uint32 PCMBufferSize = SoundWaveRef->Duration * SoundWaveRef->GetSampleRateForCurrentPlatform() * SoundWaveRef->NumChannels;
 
 			SoundWaveRef->CachedRealtimeFirstBuffer = new uint8[PCMBufferSize * 2];
 

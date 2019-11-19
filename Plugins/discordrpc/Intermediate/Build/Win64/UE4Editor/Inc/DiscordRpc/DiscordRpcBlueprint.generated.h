@@ -1,11 +1,11 @@
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-#include "ObjectMacros.h"
-#include "ScriptMacros.h"
+#include "UObject/ObjectMacros.h"
+#include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct FDiscordUserData;
@@ -15,14 +15,18 @@ struct FDiscordUserData;
 #define DISCORDRPC_DiscordRpcBlueprint_generated_h
 
 #define MediocreMapper_Plugins_discordrpc_Source_DiscordRpc_Public_DiscordRpcBlueprint_h_54_GENERATED_BODY \
-	friend DISCORDRPC_API class UScriptStruct* Z_Construct_UScriptStruct_FDiscordRichPresence(); \
+	friend struct Z_Construct_UScriptStruct_FDiscordRichPresence_Statics; \
 	DISCORDRPC_API static class UScriptStruct* StaticStruct();
 
+
+template<> DISCORDRPC_API UScriptStruct* StaticStruct<struct FDiscordRichPresence>();
 
 #define MediocreMapper_Plugins_discordrpc_Source_DiscordRpc_Public_DiscordRpcBlueprint_h_15_GENERATED_BODY \
-	friend DISCORDRPC_API class UScriptStruct* Z_Construct_UScriptStruct_FDiscordUserData(); \
+	friend struct Z_Construct_UScriptStruct_FDiscordUserData_Statics; \
 	DISCORDRPC_API static class UScriptStruct* StaticStruct();
 
+
+template<> DISCORDRPC_API UScriptStruct* StaticStruct<struct FDiscordUserData>();
 
 #define MediocreMapper_Plugins_discordrpc_Source_DiscordRpc_Public_DiscordRpcBlueprint_h_45_DELEGATE \
 struct _Script_DiscordRpc_eventDiscordJoinRequest_Parms \
@@ -221,21 +225,19 @@ static inline void FDiscordConnected_DelegateWrapper(const FMulticastScriptDeleg
 #define MediocreMapper_Plugins_discordrpc_Source_DiscordRpc_Public_DiscordRpcBlueprint_h_94_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUDiscordRpc(); \
-	friend DISCORDRPC_API class UClass* Z_Construct_UClass_UDiscordRpc(); \
+	friend struct Z_Construct_UClass_UDiscordRpc_Statics; \
 public: \
-	DECLARE_CLASS(UDiscordRpc, UObject, COMPILED_IN_FLAGS(0), 0, TEXT("/Script/DiscordRpc"), NO_API) \
-	DECLARE_SERIALIZER(UDiscordRpc) \
-	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
+	DECLARE_CLASS(UDiscordRpc, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/DiscordRpc"), NO_API) \
+	DECLARE_SERIALIZER(UDiscordRpc)
 
 
 #define MediocreMapper_Plugins_discordrpc_Source_DiscordRpc_Public_DiscordRpcBlueprint_h_94_INCLASS \
 private: \
 	static void StaticRegisterNativesUDiscordRpc(); \
-	friend DISCORDRPC_API class UClass* Z_Construct_UClass_UDiscordRpc(); \
+	friend struct Z_Construct_UClass_UDiscordRpc_Statics; \
 public: \
-	DECLARE_CLASS(UDiscordRpc, UObject, COMPILED_IN_FLAGS(0), 0, TEXT("/Script/DiscordRpc"), NO_API) \
-	DECLARE_SERIALIZER(UDiscordRpc) \
-	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
+	DECLARE_CLASS(UDiscordRpc, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/DiscordRpc"), NO_API) \
+	DECLARE_SERIALIZER(UDiscordRpc)
 
 
 #define MediocreMapper_Plugins_discordrpc_Source_DiscordRpc_Public_DiscordRpcBlueprint_h_94_STANDARD_CONSTRUCTORS \
@@ -288,6 +290,8 @@ private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
+template<> DISCORDRPC_API UClass* StaticClass<class UDiscordRpc>();
+
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID MediocreMapper_Plugins_discordrpc_Source_DiscordRpc_Public_DiscordRpcBlueprint_h
 
@@ -296,4 +300,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	op(EDiscordJoinResponseCodes::DISCORD_REPLY_NO) \
 	op(EDiscordJoinResponseCodes::DISCORD_REPLY_YES) \
 	op(EDiscordJoinResponseCodes::DISCORD_REPLY_IGNORE) 
+
+enum class EDiscordJoinResponseCodes : uint8;
+template<> DISCORDRPC_API UEnum* StaticEnum<EDiscordJoinResponseCodes>();
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
