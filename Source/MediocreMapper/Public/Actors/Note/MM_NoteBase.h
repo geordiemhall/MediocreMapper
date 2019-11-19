@@ -93,6 +93,7 @@ protected:
 
 	UFUNCTION(BlueprintPure, Category = "Note")
 		FNoteData GetData();
+
 	
 
 private:
@@ -104,10 +105,16 @@ private:
 	UPROPERTY()
 		class UMM_GameInstance* GameInstRef;
 
+	UPROPERTY()
+		TArray<int32> DirectionToAngles;
+
 	UFUNCTION()
 		float GetNoteSeparation();
 
 	UFUNCTION()
 		void SetMeshMaterialData(class UDataAsset* NewDataInfo);
+
+	UFUNCTION()
+		void FixAngle();
 
 };

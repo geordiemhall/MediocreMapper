@@ -38,6 +38,17 @@ void AMM_NoteBase::BeginPlay()
 	Super::BeginPlay();
 
 	GameInstRef = Cast<UMM_GameInstance>(GetWorld()->GetGameInstance());
+
+	DirectionToAngles.Empty();
+	DirectionToAngles.Add(180);
+	DirectionToAngles.Add(0);
+	DirectionToAngles.Add(270);
+	DirectionToAngles.Add(90);
+	DirectionToAngles.Add(225);
+	DirectionToAngles.Add(135);
+	DirectionToAngles.Add(315);
+	DirectionToAngles.Add(45);
+	DirectionToAngles.Add(0);
 }
 
 void AMM_NoteBase::UpdateNote()
@@ -97,6 +108,28 @@ void AMM_NoteBase::UpdateTransform()
 {
 	FixValues();
 
+	FRotator NewRotation = FRotator::ZeroRotator;
+	if (Direction >= 800)
+	{
+		// PYR
+		NewRotation = FRotator((float)((Direction - 1000) * -1), 0.0f, 0.0f);
+	}
+	else
+	{
+		NewRotation = FRotator((float)DirectionToAngles[Direction], 0.0f, 0.0f);
+	}
+
+	NoteMesh->SetRelativeRotation(NewRotation);
+
+
+	if (Layer >= 1000 || Layer <= -1000)
+	{
+
+	}
+	else
+	{
+
+	}
 
 }
 
@@ -175,6 +208,27 @@ void AMM_NoteBase::SetMeshMaterialData(class UDataAsset* NewDataInfo)
 		NoteMesh->SetStaticMesh(CurrentData->Mesh);
 		NoteMesh->SetMaterial(0, CurrentData->MeshMaterial);
 		ArrowMesh->SetMaterial(0, CurrentData->ArrowMaterial);
+	}
+}
+
+void AMM_NoteBase::FixAngle()
+{
+	if (Direction >= 800)
+	{
+		int32 TempDirection = Direction;
+		TempDirection -= 1000;
+
+		if (TempDirection > 359)
+		{
+			TempDirection = 0;
+		}
+
+		if (TempDirection < 0)
+		{
+			TempDirection = 355;
+		}
+
+		Direction = TempDirection + 1000;
 	}
 }
 
