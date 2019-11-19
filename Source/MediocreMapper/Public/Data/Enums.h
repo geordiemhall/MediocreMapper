@@ -1,4 +1,6 @@
 
+#pragma once
+
 #include "CoreMinimal.h"
 #include "Enums.generated.h"
 
@@ -41,3 +43,15 @@ enum class EUndoType : uint8
 	Break
 };
 
+UENUM(BlueprintType)
+enum class ENoteType : uint8
+{
+	Red = 0,
+	Blue,
+	Obstacle,
+	Bomb,
+	Magenta,
+	Green,
+	Grey,
+	Unknown
+};

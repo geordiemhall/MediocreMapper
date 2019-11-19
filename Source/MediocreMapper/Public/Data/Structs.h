@@ -1,4 +1,6 @@
 
+#pragma once
+
 #include "CoreMinimal.h"
 #include "Enums.h"
 #include "Structs.generated.h"
@@ -191,7 +193,7 @@ public:
 		float Time;
 
 	UPROPERTY(EditAnywhere, Category = "Track Event")
-		int32 Type;
+		ENoteType Type;
 
 	UPROPERTY(EditAnywhere, Category = "Track Event")
 		int32 Value;
@@ -199,7 +201,7 @@ public:
 	FTrackEvent()
 	{
 		Time = 0.0f;
-		Type = 0;
+		Type = ENoteType::Unknown;
 		Value = 0;
 	}
 };
@@ -222,7 +224,7 @@ public:
 		int32 Layer;
 
 	UPROPERTY(EditAnywhere, Category = "Note")
-		int32 Type;
+		ENoteType Type;
 
 	UPROPERTY(EditAnywhere, Category = "Note")
 		int32 CutDirection;
@@ -232,7 +234,7 @@ public:
 		Time = 0.0f;
 		Line = 0;
 		Layer = 0;
-		Type = 0;
+		Type = ENoteType::Unknown;
 		CutDirection = 0;
 	}
 
@@ -253,7 +255,7 @@ public:
 		int32 TimeIndex;
 
 	UPROPERTY(EditAnywhere, Category = "Obstacle")
-		int32 Type;
+		ENoteType Type;
 
 	UPROPERTY(EditAnywhere, Category = "Obstacle")
 		float Duration;
@@ -265,7 +267,7 @@ public:
 	{
 		Time = 0.0f;
 		TimeIndex = 0;
-		Type = 0;
+		Type = ENoteType::Unknown;
 		Duration = 0.0f;
 		Width = 0;
 	}

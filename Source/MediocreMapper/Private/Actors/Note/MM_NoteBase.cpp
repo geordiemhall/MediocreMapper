@@ -3,6 +3,7 @@
 
 #include "MM_NoteBase.h"
 #include "System/MM_GameInstance.h"
+#include "Assets/DA_Note.h"
 
 // Sets default values
 AMM_NoteBase::AMM_NoteBase()
@@ -35,12 +36,111 @@ void AMM_NoteBase::OnConstruction(const FTransform& Transform)
 void AMM_NoteBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	GameInstRef = Cast<UMM_GameInstance>(GetWorld()->GetGameInstance());
 }
 
 void AMM_NoteBase::UpdateNote()
 {
+	FixValues();
 
+	if (Direction == 8)
+	{
+		if (DotArrow)
+		{
+			ArrowMesh->SetStaticMesh(DotArrow);
+		}
+	}
+	else
+	{
+		if (PointArrow)
+		{
+			ArrowMesh->SetStaticMesh(PointArrow);
+		}
+	}
+	ArrowMesh->SetRelativeLocation(FVector(0.0f, 25.0f, 0.0f));
+
+
+	switch (Type)
+	{
+	case ENoteType::Red:
+		SetMeshMaterialData(RedNote);
+		break;
+	case ENoteType::Blue:
+		SetMeshMaterialData(BlueNote);
+		break;
+	case ENoteType::Bomb:
+		SetMeshMaterialData(BombNote);
+		ArrowMesh->SetVisibility(false);
+		break;
+	case ENoteType::Magenta:
+		SetMeshMaterialData(MagentaNote);
+		break;
+	case ENoteType::Green:
+		SetMeshMaterialData(GreenNote);
+		break;
+	case ENoteType::Grey:
+		SetMeshMaterialData(GreenNote);
+		break;
+	case ENoteType::Obstacle:
+	case ENoteType::Unknown:
+	default:
+		break;
+
+	}
+
+
+	UpdateTransform();
+}
+
+void AMM_NoteBase::UpdateTransform()
+{
+	FixValues();
+
+
+}
+
+void AMM_NoteBase::FixValues()
+{
+	// TODO: Smooth this out. This is why I hate BP math conversions, the original has select nodes all over the place.
+	if (GameInstRef)
+	{
+		if (!GameInstRef->bPrecisionPlacement)
+		{
+			Layer = Layer % 3;
+			if (Layer < 0)
+			{
+				Layer = 2;
+			}
+
+
+			if (GameInstRef->b6Lane)
+			{
+				int32 TempLine = (Line + 1) % 6;
+				if (TempLine < 0)
+				{
+					Line = 4;
+				}
+				else
+				{
+					Line = TempLine - 1;
+				}
+			}
+			else
+			{
+				int32 TempLine = Line % 4;
+				if (TempLine < 0)
+				{
+					Line = 2;
+				}
+				else
+				{
+					Line = TempLine - 1;
+				}
+			}
+
+		}
+	}
 }
 
 FNoteData AMM_NoteBase::GetData()
@@ -56,9 +156,7 @@ FNoteData AMM_NoteBase::GetData()
 }
 
 float AMM_NoteBase::GetNoteSeparation()
-{
-	UMM_GameInstance* GameInstRef = Cast<UMM_GameInstance>(GetWorld()->GetGameInstance());
-	
+{	
 	if (GameInstRef)
 	{
 		return GameInstRef->NoteSeparation;
@@ -68,4 +166,15 @@ float AMM_NoteBase::GetNoteSeparation()
 	return 200.0f;
 }
 
+void AMM_NoteBase::SetMeshMaterialData(class UDataAsset* NewDataInfo)
+{
+	UDA_Note* CurrentData = Cast<UDA_Note>(NewDataInfo);
+
+	if (CurrentData)
+	{
+		NoteMesh->SetStaticMesh(CurrentData->Mesh);
+		NoteMesh->SetMaterial(0, CurrentData->MeshMaterial);
+		ArrowMesh->SetMaterial(0, CurrentData->ArrowMaterial);
+	}
+}
 
