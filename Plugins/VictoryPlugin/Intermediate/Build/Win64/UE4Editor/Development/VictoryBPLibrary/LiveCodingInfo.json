@@ -3,13 +3,13 @@
 	{
 		"Module.VictoryBPLibrary.cpp.obj": [
 			"TKMathFunctionLibrary.cpp.obj",
+			"VictoryBPFunctionLibrary.cpp.obj",
+			"VictoryBPFunctionLibrary_WinOS.cpp.obj",
 			"VictoryBPHTML.cpp.obj",
 			"VictoryBPLibrary.cpp.obj",
 			"VictoryISM.cpp.obj",
 			"VictoryPC.cpp.obj",
-			"VictoryTMapComp.cpp.obj",
-			"VictoryBPFunctionLibrary.cpp.obj",
-			"VictoryBPFunctionLibrary_WinOS.cpp.obj"
+			"VictoryTMapComp.cpp.obj"
 		],
 		"Module.VictoryBPLibrary.gen.1_of_2.cpp.obj": [
 			"TKMathFunctionLibrary.gen.cpp.obj",

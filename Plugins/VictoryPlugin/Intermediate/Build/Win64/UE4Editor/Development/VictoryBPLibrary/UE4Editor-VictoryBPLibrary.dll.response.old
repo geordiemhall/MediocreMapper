@@ -43,6 +43,8 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN
 "D:\UnrealProjects\Repos\MediocreMapper\Intermediate\Build\Win64\MediocreMapperEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"D:\UnrealProjects\Repos\MediocreMapper\Plugins\VictoryPlugin\Intermediate\Build\Win64\UE4Editor\Development\VictoryBPLibrary\VictoryBPFunctionLibrary.cpp.obj"
+"D:\UnrealProjects\Repos\MediocreMapper\Plugins\VictoryPlugin\Intermediate\Build\Win64\UE4Editor\Development\VictoryBPLibrary\VictoryBPFunctionLibrary_WinOS.cpp.obj"
 "D:\UnrealProjects\Repos\MediocreMapper\Plugins\VictoryPlugin\Intermediate\Build\Win64\UE4Editor\Development\VictoryBPLibrary\Module.VictoryBPLibrary.cpp.obj"
 "D:\UnrealProjects\Repos\MediocreMapper\Plugins\VictoryPlugin\Intermediate\Build\Win64\UE4Editor\Development\VictoryBPLibrary\Module.VictoryBPLibrary.gen.1_of_2.cpp.obj"
 "D:\UnrealProjects\Repos\MediocreMapper\Plugins\VictoryPlugin\Intermediate\Build\Win64\UE4Editor\Development\VictoryBPLibrary\Module.VictoryBPLibrary.gen.2_of_2.cpp.obj"
