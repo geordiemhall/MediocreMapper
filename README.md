@@ -18,5 +18,6 @@ I don't own Beat Saber but I did play a ton of Guitar Hero and Frets on Fire plu
 * Optimizations will happen once I get the C++ side setup and I can decipher what is going on (especially in the BP_Controller)
 * I will not be using native windows headers (hence the "Sensitive Code" warning on Squeakies fork) so cross compiling can be a thing
 * The MMMM server is getting removed if possible because it seems to be an add-on that isn't needed
+* The blueprints in this project are absolutely horrible so it will take quite a bit of time to get the conversion done
 
 

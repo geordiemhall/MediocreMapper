@@ -55,12 +55,6 @@ public:
 		class UStaticMesh* PointArrow;
 
 
-	
-
-
-
-
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note | Settings")
 		int32 Line = 0;
 
@@ -75,6 +69,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Note | Settings")
 		float Time = 0.0f;
+
+
+	UFUNCTION()
+		void PrecisionTurnNote(int32 AdjustAngle);
 
 
 
@@ -116,5 +114,14 @@ private:
 
 	UFUNCTION()
 		void FixAngle();
+
+
+	// These are because the BP's are a mess and it's easier to do one at a time
+	UFUNCTION()
+		float CalculateXPosition();
+	
+	UFUNCTION()
+		float CalculateZPosition();
+
 
 };

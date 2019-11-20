@@ -33,6 +33,18 @@ void AMM_NoteBase::OnConstruction(const FTransform& Transform)
 }
 
 
+void AMM_NoteBase::PrecisionTurnNote(int32 AdjustAngle)
+{
+	if (Direction < 800)
+	{
+		Direction = DirectionToAngles[Direction] + 1000;
+	}
+
+	Direction += AdjustAngle;
+	FixAngle();
+	UpdateNote();
+}
+
 void AMM_NoteBase::BeginPlay()
 {
 	Super::BeginPlay();
@@ -122,14 +134,14 @@ void AMM_NoteBase::UpdateTransform()
 	NoteMesh->SetRelativeRotation(NewRotation);
 
 
+	
 	if (Layer >= 1000 || Layer <= -1000)
 	{
-
+		Layer = FMath::Max(Layer, 1000);
 	}
-	else
-	{
 
-	}
+	NoteMesh->SetRelativeLocation(FVector(CalculateXPosition(), 0.0f, CalculateZPosition()));
+	SetActorRelativeLocation(FVector(0.0f, (GetNoteSeparation() * Time) * -1, 0.0f));
 
 }
 
@@ -230,5 +242,56 @@ void AMM_NoteBase::FixAngle()
 
 		Direction = TempDirection + 1000;
 	}
+}
+
+float AMM_NoteBase::CalculateXPosition()
+{
+	float Result = 0;
+
+
+	if (Line >= 1000 || Line <= -1000)
+	{
+		if (Line > 0)
+		{
+			Result = Line - 1000;
+		}
+		else
+		{
+			Result = Line + 1000;
+		}
+
+		Result = (((float)Result / 1000.0f) * 70.0f) - 105.0f;
+	}
+	else
+	{
+		Result = (float)((Line * 70) - 10);
+	}
+
+	return Result;
+}
+
+float AMM_NoteBase::CalculateZPosition()
+{
+	float Result = 0;
+
+	if (Layer >= 1000 || Layer <= -1000)
+	{
+		if (Layer > 0)
+		{
+			Result = Layer - 1000;
+		}
+		else
+		{
+			Result = Layer + 1000;
+		}
+
+		Result = ((Result / 1000.0f) * 70.0f);
+	}
+	else
+	{
+		Result = Layer * 70;
+	}
+
+	return Result;
 }
 
