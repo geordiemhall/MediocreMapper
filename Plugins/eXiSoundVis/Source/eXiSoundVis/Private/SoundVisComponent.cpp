@@ -1,8 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "eXiSoundVisPrivatePCH.h"
 
 #include "SoundVisComponent.h"
+
+#include "eXiSoundVisPrivatePCH.h"
 
 #include "Sound/SoundWave.h"
 #include "AudioDevice.h"

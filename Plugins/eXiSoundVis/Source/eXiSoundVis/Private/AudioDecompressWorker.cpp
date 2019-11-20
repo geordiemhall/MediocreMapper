@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "AudioDecompressWorker.h"
 #include "eXiSoundVisPrivatePCH.h"
 
-#include "AudioDecompressWorker.h"
 #include "SoundVisComponent.h"
 
 #include "AudioDevice.h"

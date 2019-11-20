@@ -5,6 +5,8 @@ public class eXiSoundVis : ModuleRules
 {
 	public eXiSoundVis(ReadOnlyTargetRules Target) : base(Target)
 	{
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
 		PrivateIncludePaths.AddRange(new string[] {	"eXiSoundVis/Private" });
 		PublicIncludePaths.AddRange(new string[] { "eXiSoundVis/Public" });
 		
