@@ -12,6 +12,9 @@
 #include "ProceduralMeshComponent.h"
 #include "../../AudioCapture/Source/AudioCapture/Public/AudioCaptureComponent.h"
 #include "SoundVisComponent.h"
+#include "RenderWaveform.h"
+#include "Kismet/GameplayStatics.h"
+#include "UserWidget.h"
 
 
 
@@ -122,11 +125,32 @@ AMM_Controller::AMM_Controller(const FObjectInitializer& ObjectInitializer)
 void AMM_Controller::BeginPlay()
 {
 	Super::BeginPlay();
+
+	PlayerControllerRef = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+
 	
 	UKismetSystemLibrary::SetWindowTitle(FText::FromString("Mediocre Mapper"));
 
 	// TODO: Set this up properly
 	GetWorld()->Exec(GetWorld(), TEXT("r.setres 1280x720w"));
+
+	// TODO: Get event manager
+
+	SetupWaveformGraph();
+
+	if (UGameplayStatics::DoesSaveGameExist("config1", 0))
+	{
+
+	}
+	else
+	{
+		if (SetPathUI)
+		{
+			UUserWidget* PathWidget = CreateWidget<UUserWidget>(PlayerControllerRef, SetPathUI);
+			PathWidget->AddToViewport();
+		}
+	}
+	
 }
 
 // Called every frame
@@ -141,5 +165,16 @@ void AMM_Controller::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AMM_Controller::SetupWaveformGraph()
+{
+	URenderWaveform::BP_GenerateSpectrogramMesh(Spectrogram, 160, 64);
+	
+	if (WaveformMaterial)
+	{
+		Spectrogram->SetMaterial(0, WaveformMaterial);
+	}
+	
 }
 

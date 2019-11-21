@@ -15,7 +15,10 @@ public class MediocreMapper : ModuleRules
 			"ProceduralMeshComponent",
 			"HTTP",
 			"AudioCapture",
-			"eXiSoundVis"
+			"eXiSoundVis",
+			"UMG",
+			"Slate",
+			"SlateCore"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

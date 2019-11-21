@@ -85,6 +85,21 @@ public:
 
 #pragma endregion Components
 
+#pragma region Settings
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller | Settings")
+		class UMaterialInterface* WaveformMaterial;
+
+
+#pragma endregion Settings
+
+#pragma region UI
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Controller | Settings")
+		TSubclassOf<class UUserWidget> SetPathUI;
+#pragma endregion UI
+
+
+	UPROPERTY(BlueprintReadOnly, Category = "Controller | Data")
+		class UMM_SaveGame* ConfigData;
 
 protected:
 	virtual void BeginPlay() override;
@@ -92,6 +107,10 @@ protected:
 
 
 private:
+	UPROPERTY()
+		class APlayerController* PlayerControllerRef;
 
+
+	void SetupWaveformGraph();
 	
 };
