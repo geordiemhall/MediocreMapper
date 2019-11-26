@@ -110,12 +110,12 @@ bool UBPFileIO::DeleteDirectory(const FString & Directory)
 	return true;
 }
 
-int UBPFileIO::getFileSize(const FString & File)
+int UBPFileIO::GetFileSize(const FString & File)
 {
 	return FPlatformFileManager::Get().GetPlatformFile().FileSize(*File);
 }
 
-int UBPFileIO::getTimestamp(const FString & File)
+int UBPFileIO::GetTimestamp(const FString & File)
 {
 	return FPlatformFileManager::Get().GetPlatformFile().GetTimeStamp(*File).ToUnixTimestamp();
 }

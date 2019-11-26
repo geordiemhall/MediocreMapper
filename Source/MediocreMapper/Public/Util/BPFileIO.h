@@ -45,9 +45,9 @@ class MEDIOCREMAPPER_API UBPFileIO : public UBlueprintFunctionLibrary
 		static bool DeleteDirectory(const FString& Directory);
 
 	UFUNCTION(BlueprintCallable, Category = "File IO")
-		static int getFileSize(const FString& File);
+		static int GetFileSize(const FString& File);
 
 	UFUNCTION(BlueprintCallable, Category = "File IO")
-		static int getTimestamp(const FString& File);
+		static int GetTimestamp(const FString& File);
 	
 };

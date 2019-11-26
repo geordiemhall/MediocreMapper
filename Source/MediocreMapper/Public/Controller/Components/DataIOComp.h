@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "PlatformFilemanager.h"
+#include "GenericPlatformFile.h"
+#include "FileManager.h"
 #include "DataIOComp.generated.h"
 
 
@@ -15,12 +18,18 @@ class MEDIOCREMAPPER_API UDataIOComp : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UDataIOComp();
+	void BeginPlay() override;
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+	UFUNCTION()
+		void LoadConfigData();
+
 
 
 
 		
+private:
+	UPROPERTY()
+		class AMM_Controller* OwningCont;
+	
+
 };

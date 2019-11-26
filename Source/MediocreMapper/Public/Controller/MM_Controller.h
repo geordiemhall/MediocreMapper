@@ -82,6 +82,8 @@ public:
 
 	// TODO: BP_Note_Ghost, BP_Event_Ghost, BP_Wall_Ghost
 
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Controller | Components")
+		class UDataIOComp* DataIO;
 
 #pragma endregion Components
 
@@ -101,9 +103,12 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Controller | Data")
 		class UMM_SaveGame* ConfigData;
 
+
+
+	const APlayerController* GetPlayerControllerRef() { return PlayerControllerRef; }
+
 protected:
 	virtual void BeginPlay() override;
-
 
 
 private:

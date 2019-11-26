@@ -136,6 +136,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Save Data | Misc Settings")
 		float PrecisionB;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Save Data | Misc Settings")
+		TArray<FVector> Colors;
+
 
 	FMiscSettings()
 	{

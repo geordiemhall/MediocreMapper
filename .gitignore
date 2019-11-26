@@ -71,6 +71,7 @@ Saved/*
 # Compiled source files for the engine to use
 Intermediate/*
 Plugins/*/Intermediate/*
+Plugins/*/Binaries/*
 
 # Packaged exe
 Packaging/*
@@ -80,3 +81,4 @@ Releases/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+

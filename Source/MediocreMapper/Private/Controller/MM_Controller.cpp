@@ -15,6 +15,9 @@
 #include "RenderWaveform.h"
 #include "Kismet/GameplayStatics.h"
 #include "UserWidget.h"
+#include "MM_SaveGame.h"
+#include "Kismet/KismetStringLibrary.h"
+#include "DataIOComp.h"
 
 
 
@@ -119,6 +122,8 @@ AMM_Controller::AMM_Controller(const FObjectInitializer& ObjectInitializer)
 
 	SoundVis = CreateDefaultSubobject<USoundVisComponent>(TEXT("SoundVis"));
 
+	DataIO = CreateDefaultSubobject<UDataIOComp>(TEXT("Data IO Component"));
+
 }
 
 // Called when the game starts or when spawned
@@ -138,11 +143,7 @@ void AMM_Controller::BeginPlay()
 
 	SetupWaveformGraph();
 
-	if (UGameplayStatics::DoesSaveGameExist("config1", 0))
-	{
-
-	}
-	else
+	if (!UGameplayStatics::DoesSaveGameExist("config1", 0))
 	{
 		if (SetPathUI)
 		{
@@ -150,6 +151,13 @@ void AMM_Controller::BeginPlay()
 			PathWidget->AddToViewport();
 		}
 	}
+
+	if (DataIO)
+	{
+		DataIO->LoadConfigData();
+	}
+
+
 	
 }
 
