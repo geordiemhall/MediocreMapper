@@ -1,7 +1,8 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
-#include "Socketer.h"
 #include "SocketerBPLibrary.h"
+#include "Socketer.h"
+
 
 USocketerBPLibrary::USocketerBPLibrary(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer)

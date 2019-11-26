@@ -6,10 +6,11 @@ public class Socketer : ModuleRules
 {
 	public Socketer(ReadOnlyTargetRules Target) : base(Target)
 	{
-		
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"Socketer/Public"
+				//"Socketer/Public"
 				
 				// ... add public include paths required here ...
 			}
@@ -18,7 +19,7 @@ public class Socketer : ModuleRules
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"Socketer/Private",
+				//"Socketer/Private",
 				
 				// ... add other private include paths required here ...
 			}
